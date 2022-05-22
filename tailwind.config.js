@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -5,14 +7,13 @@ module.exports = {
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
-    "./app.vue",
   ],
   darkMode: "class",
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       animation: {
         fade: "fade 0.4s ease-in-out",
